@@ -65,12 +65,11 @@ int main()
     	  // reads first element from the current line
     	  string sensor_type;
     	  iss >> sensor_type;
-
+        float px;
+        float py;
     	  if (sensor_type.compare("L") == 0) {
       	  		meas_package.sensor_type_ = MeasurementPackage::LASER;
           		meas_package.raw_measurements_ = VectorXd(2);
-          		float px;
-      	  		float py;
           		iss >> px;
           		iss >> py;
           		meas_package.raw_measurements_ << px, py;
@@ -86,11 +85,13 @@ int main()
           		iss >> ro;
           		iss >> theta;
           		iss >> ro_dot;
+              px = ro*cos(theta);
+              py = ro*sin(theta);
           		meas_package.raw_measurements_ << ro,theta, ro_dot;
           		iss >> timestamp;
           		meas_package.timestamp_ = timestamp;
           }
-          float x_gt;
+        float x_gt;
     	  float y_gt;
     	  float vx_gt;
     	  float vy_gt;
@@ -116,9 +117,19 @@ int main()
     	  double p_y = ukf.x_(1);
     	  double v  = ukf.x_(2);
     	  double yaw = ukf.x_(3);
-
+          
     	  double v1 = cos(yaw)*v;
     	  double v2 = sin(yaw)*v;
+        
+        //Write Predictions to file:
+        ofstream myFile;
+        myFile.open ("predictions.txt", ios::out | ios::app | ios::binary);
+          myFile << p_x << "\t" << p_y << "\t";
+          myFile << v1 << "\t" << v2 << "\t";
+          myFile << px << "\t" << py << "\t";
+          myFile << x_gt << "\t" << y_gt << "\t";
+          myFile << vx_gt << "\t" << vy_gt << "\n";
+        myFile.close();
 
     	  estimate(0) = p_x;
     	  estimate(1) = p_y;
