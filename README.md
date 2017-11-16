@@ -1,4 +1,6 @@
 # Unscented Kalman Filter in C++
+NOTE: README under construction, will be updated soon...
+
 <figure>
   <img src="readme_images/plot_final.png"/>
 </figure>
