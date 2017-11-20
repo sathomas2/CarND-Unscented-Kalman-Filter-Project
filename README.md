@@ -25,7 +25,7 @@ I ran the simulator once with these process noise estimates, calculating the Noi
 </figure>
  <p></p>
 
-Looking at a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only has two degrees of freedom, Px and Py, should be less than 5.991. 95% of RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, should be less than 7.815.
+Looking at a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only have two degrees of freedom, Px and Py, should be less than 5.991. 95% of RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, should be less than 7.815.
  <figure>
   <img src="readme_images/chi_square.png"/>
 </figure>
