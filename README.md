@@ -25,7 +25,7 @@ I ran the simulator once with these process noise estimates, calculating the Noi
 </figure>
  <p></p>
 
-Looking a a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only has two degrees of freedom Px and Py, should be less than 5.991. For RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, 95% of RADAR measurements should be less than 7.815.
+Looking at a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only has two degrees of freedom Px and Py, should be less than 5.991. For RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, 95% of RADAR measurements should be less than 7.815.
  <figure>
   <img src="readme_images/chi_square.png"/>
 </figure>
@@ -41,7 +41,7 @@ Looking a a chi-squared distribution table, I know that the NIS for 95% of LIDAR
 </figure>
  <p></p>
 
-As I expected, they were not. Because so many NIS measurements were higher than what I want, I know I need to increase my parameters. And so I did, until achieving better results, as shown below.
+Because so many NIS measurements were higher than what I want, I know I need to increase my parameters. And so I did, until achieving better results, as shown below.
  <figure>
   <img src="readme_images/LIDAR_NIS.png"/>
 </figure>
@@ -50,6 +50,7 @@ As I expected, they were not. Because so many NIS measurements were higher than 
   <img src="readme_images/RADAR_NIS.png"/>
 </figure>
  <p></p>
+
 My final process noise parameters were 0.7 meters-per-seconds-squared for acceleration and 0.75 radians-per-seconds-squared for yaw acceleration. 
 
 ### Results:
@@ -57,17 +58,20 @@ My final process noise parameters were 0.7 meters-per-seconds-squared for accele
   <img src="readme_images/plot_final.png"/>
 </figure>
  <p></p>
-As you can see from the above plot, my RMSE was lower for every term, Px, Py, Vx, and Vy than with the [Extended Kalman Filter](https://github.com/sathomas2/CarND-Extended-Kalman-Filter-Project). Just for kicks, I decided the run the Unscented Kalman Filter only capturing LIDAR data, and again only capturing RADAR data. See below.
+As you can see from the above plot, my RMSE was lower for every term, Px, Py, Vx, and Vy than with my Extended Kalman Filter, whose RMSE was X: 0.0973, Y: 0.0855, VX: 0.4513, VY: 0.4399. 
 
+Just for kicks, I decided to run the Unscented Kalman Filter only capturing LIDAR data, and again only capturing RADAR data. See below.
  <figure>
   <img src="readme_images/plot_LIDAR.png"/>
 </figure>
  <p></p>
-As expected, LIDAR alone is better at detecting position coordinates, RADAR is better at velocity, but nothing beats a little teamwork and fusing data from both sensors. See the RMSEs.
  <figure>
   <img src="readme_images/plot_RADAR.png"/>
 </figure>
  <p></p>
+ 
+As expected, LIDAR alone is better at detecting position coordinates, RADAR is better at velocity, but nothing beats a little teamwork and fusing data from both sensors. See the RMSEs.
+
  
  
    
