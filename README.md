@@ -7,7 +7,7 @@ In a [previous repo](https://github.com/sathomas2/CarND-Extended-Kalman-Filter-P
   * C++ Eigen Matrix library.
   * json.hpp.
   * main.cpp, which contains starter code provided by Udacity that uses WebSocketIO to communicate with the simulator and calls the Unscented Kalman Filter functions that I wrote. I've also added some lines to write an output file so I could plot the measurements, groundtruth labels, and Kalman Filter predictions that you see in this README below (line 125).
-  * tools.cpp, which contains the function I wrote used to calculate the Root-Mean-Squared Error of the Kalman Filter predictions.
+  * tools.cpp, which contains the function I wrote to calculate the Root-Mean-Squared Error of the Kalman Filter predictions.
   * ukf.cpp, which contains the Unscented Kalman Filter class and the functions I wrote, ProcessMeasurement to the process the sensor data, Prediction to estimate the bike's location, velocity, yaw, and yawrate as well as the covariance matrix P based on the measurements, and the Update functions to update state and covariance matrices depending on the type of data being processed, LIDAR or RADAR.
 * CMakeLists.txt to compile the code with cmake.
 * data_visualization.ipynb, a jupyter notebook walking through how I read and plotted the data I captured, which is contained in the "data" directory.
@@ -25,7 +25,7 @@ I ran the simulator once with these process noise estimates, calculating the Noi
 </figure>
  <p></p>
 
-Looking at a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only has two degrees of freedom Px and Py, should be less than 5.991. For RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, 95% of RADAR measurements should be less than 7.815.
+Looking at a chi-squared distribution table, I know that the NIS for 95% of LIDAR measurements, which only has two degrees of freedom Px and Py, should be less than 5.991. 95% of RADAR measurements, which have three degrees of freedom, rho, theta, and rho dot, should be less than 7.815.
  <figure>
   <img src="readme_images/chi_square.png"/>
 </figure>
@@ -71,7 +71,3 @@ Just for kicks, I decided to run the Unscented Kalman Filter only capturing LIDA
  <p></p>
  
 As expected, LIDAR alone is better at detecting position coordinates, RADAR is better at velocity, but nothing beats a little teamwork and fusing data from both sensors. See the RMSEs.
-
- 
- 
-   
