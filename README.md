@@ -19,7 +19,7 @@ In an Unscented Kalman Filter, in addition to the measurement noise standard dev
 
 Since the simulator provides ground truth labels for velocity and yaw rate as well as a timestamp for each measurement, I can calculate the bicycle's acceleration and yaw acceleration between each timestamp. As a starting point, I set my initial standard deviations for acceleration and yaw acceleration as 1/2 of the max recorded acceleration, or 0.05 and 0.07, respectively. See the data_visualization notebook, lines 3-5, for how I did this. 
 
-I ran the simulator once with these process noise estimates, calculating the Noise Innovation Squared for each sensor after each measurement update and writing it to a file (ukf.cpp lines 255-261 and 330-336). NIS is a metric often used to measure performance in Kalman Filters. Essentially, it measures the difference between the expected measurement and the actual sensor measurement. It is defined as:
+I ran the simulator once with these process noise estimates, calculating the Noise Innovation Squared for each sensor after each measurement update and writing it to a file (ukf.cpp lines 255-261 and 330-336). NIS is a metric often used to guage performance in Kalman Filters. Essentially, it calculates the difference between the expected measurement and the actual sensor measurement. It is defined as:
 <figure>
   <img src="readme_images/NIS.png"/>
 </figure>
