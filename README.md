@@ -1,7 +1,7 @@
 # Unscented Kalman Filter in C++
 ### Overview:
 In a [previous repo](https://github.com/sathomas2/CarND-Extended-Kalman-Filter-Project), using a simulator provided by Udacity's Self-Driving Car team, I tracked the movement of a bicycle in real-time as it moved about a track with an Extended Kalman Filter by fusing noisy LIDAR and RADAR data. Although it worked pretty well, in this repo I'm going to use an Unscented Kalman Filter to achieve better results. The contents of this repository include:
-* "data" directory containing the sensor input measurements and ground truth lables of position, velocity, yaw angle, and yaw rate.
+* "data" directory containing my output files, which are discussed below, and the sensor input measurements and ground truth lables.
 * "readme_images" directory containing images used in this README.
 * "src" directory containing:
   * C++ Eigen Matrix library.
