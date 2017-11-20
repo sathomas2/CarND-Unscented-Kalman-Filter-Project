@@ -1,14 +1,14 @@
 # Unscented Kalman Filter in C++
 ### Overview:
 In a [previous repo](https://github.com/sathomas2/CarND-Extended-Kalman-Filter-Project), using a simulator provided by Udacity's Self-Driving Car team, I tracked the movement of a bicycle in real-time as it moved about a track with an Extended Kalman Filter by fusing noisy LIDAR and RADAR data. Although it worked pretty well, in this repo I'm going to use an Unscented Kalman Filter to achieve better results. The contents of this repository include:
-* "data" directory containing my output files, which are discussed below, and the sensor input measurements and ground truth lables.
+* "data" directory containing my output files, which are discussed below, and the sensor input measurements and ground truth labels.
 * "readme_images" directory containing images used in this README.
 * "src" directory containing:
   * C++ Eigen Matrix library.
   * json.hpp.
   * main.cpp, which contains starter code provided by Udacity that uses WebSocketIO to communicate with the simulator and calls the Unscented Kalman Filter functions that I wrote. I've also added some lines to write an output file so I could plot the measurements, groundtruth labels, and Kalman Filter predictions that you see in this README below (line 125).
   * tools.cpp, which contains the function I wrote to calculate the Root-Mean-Squared Error of the Kalman Filter predictions.
-  * ukf.cpp, which contains the Unscented Kalman Filter class and the functions I wrote, ProcessMeasurement to the process the sensor data, Prediction to estimate the bike's location, velocity, yaw, and yawrate as well as the covariance matrix P based on the measurements, and the Update functions to update state and covariance matrices depending on the type of data being processed, LIDAR or RADAR.
+  * ukf.cpp, which contains the Unscented Kalman Filter class and the functions I wrote, ProcessMeasurement to the process the sensor data, Prediction to generate sigma points and predict the bike's location, velocity, yaw, and yawrate as well as the covariance matrix P, and the Update functions to update the covariance matrix and the filter's belief about the bike's state depending on the type of data being processed, LIDAR or RADAR.
 * CMakeLists.txt to compile the code with cmake.
 * data_visualization.ipynb, a jupyter notebook walking through how I read and plotted the data I captured, which is contained in the "data" directory.
 * install-mac.sh and install-ubuntu.sh to install dependencies, depending on the operating system you are using.
